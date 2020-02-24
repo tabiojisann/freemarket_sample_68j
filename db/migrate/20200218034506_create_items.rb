@@ -12,6 +12,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :user
       t.references :category
       t.references :brand
+      t.references :prefecture
       t.timestamps
     end
   end
