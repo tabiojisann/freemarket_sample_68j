@@ -1,7 +1,15 @@
 class ItemsController < ApplicationController
-  # def index
-  #   @items = Item.includes(:images).order('created_at DESC')
-  # end
+  def index
+    lac    = Item.group(:category_id).order('count_category_id DESC').count(:category_id).first
+    category = lac[0]
+    @cates = Item.where(sale: 0).where(category_id: category).first(3)
+    @piccs = Image.where(item_id: @cates).distinct
+
+    lab    = Item.group(:brand_id).order('count_brand_id DESC').count(:brand_id).first
+    brand  = lab[0]
+    @bras  = Item.where(sale: 0).where(brand_id: brand).first(3)
+    @picbs = Image.where(item_id: @bras).distinct
+  end
 
   def new
     @item = Item.new
@@ -21,13 +29,20 @@ class ItemsController < ApplicationController
   end  
 
   def edit
+    @item = Item.find(params[:id])
   end
-
+  
   def update
+    item = Item.find(params[:id])
+    item.update(update_params)
+    redirect_to root_path
+  end
+  
+  def destroy
+    item = Item.find(params[:id])
+    item.destory
   end
 
-  def destroy
-  end
 
   def show
     @item = Item.find(params[:id])
@@ -53,21 +68,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :status, :description, :charge, :area, :day, :category_id, brand_attributes: [:id, :name], images_attributes: [:picture])
   end
 
-  def edit
-    @item = Item.find(params[:id])
+  def update_params
+    params.require(:item).permit(:name, :price, :status, :description, :charge, :area, :day, :category_id, brand_attributes: [:id, :name], images_attributes: [:picture, :id])
   end
-
-  def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-  end
-
-  def destroy
-    item = Item.find(params[:id])
-    item.destory
-  end
-
-
-  
 
 end
+
