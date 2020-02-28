@@ -467,3 +467,9 @@ other_ = other.children.create(genre: "事務/店舗用品")
 other_.children.create([{genre: "オフィス用品一般"},{genre: "オフィス家具"},{genre: "店舗用品"},{genre: "OA機器"},{genre: "ラッピング/包装"},{genre: "その他"}])
 
 other_ = other.children.create(genre: "その他")
+
+
+
+  Item.create(name: "野原ひろし", price: 4500, status: "未使用", description: "説明", charge: "配送", area: "北海道", day: "2日", sale: 0, user_id: 1, category_id: 123, brand_id: 1, prefecture_id: 1)
+  Image.create(picture: "a.jpg", item_id: 3)
+  User.create(nickname: "おじさん", email: "ddd@gmail.com", passwaord)

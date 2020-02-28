@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+  before_action :set_item, only: [:edit]
+
   def index
     lac    = Item.group(:category_id).order('count_category_id DESC').count(:category_id).first
     category = lac[0]
@@ -21,6 +24,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      @item.sale = 0
       redirect_to root_path, notice: '出品できました'
     else
       flash.now[:alert] = 'ちゃんと書いてください'
@@ -65,11 +69,15 @@ class ItemsController < ApplicationController
   private
  
   def item_params
-    params.require(:item).permit(:name, :price, :status, :description, :charge, :area, :day, :category_id, brand_attributes: [:id, :name], images_attributes: [:picture])
+    params.require(:item).permit(:name, :price, :status, :description, :charge, :area, :day, :sale, :category_id, brand_attributes: [:id, :name], images_attributes: [:picture]).merge(user_id: current_user.id)
   end
 
   def update_params
     params.require(:item).permit(:name, :price, :status, :description, :charge, :area, :day, :category_id, brand_attributes: [:id, :name], images_attributes: [:picture, :id])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

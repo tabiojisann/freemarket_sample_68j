@@ -4,59 +4,67 @@
   .Logo
     = image_tag "logo.png", class: :"Logo__png"
   .Contents 
+    .Contents__title
+      商品の情報を入力
     = form_with model: @item, class: :form, local: true do |f|
-      .Contents__title
-        商品の情報を入力
-
       .Contents__image
         .Contents__image__title
           %span.Contents__image__title--text 出品画像
           %span.Contents__image__title--must 必須  
         .Contents__image__capture
           最大10枚までアップロードできます
-          .Contents__image__upload
-            = f.fields_for :images do |i|
-              = i.label :picture, for: "item_images_attributes_0_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_0_picture", style: "display: none;", name: "item[images_attributes][0][picture]"
+          %br 枠線の中をクリックしてください
 
-              = i.label :picture, for: "item_images_attributes_1_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_1_picture", style: "display: none;", name: "item[images_attributes][1][picture]"
+          #image-box-1
+            .item-num-0#image-box__container       
+              = f.fields_for :images do |i|
+                %label.upload-label
+                  .Contents__image__upload
+                    .container
+                      = i.label :picture, for: "item_images_attributes_0_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
+                        = icon('fa', 'camera',)
+                      = i.file_field :picture, id: "item_images_attributes_0_picture", style: "display: none;", name: "item[images_attributes][0][picture]"
 
-              = i.label :picture, for: "item_images_attributes_2_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_2_picture", style: "display: none;", name: "item[images_attributes][2][picture]"
+                      = i.label :picture, for: "item_images_attributes_1_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_1_picture", style: "display: none;", name: "item[images_attributes][1][picture]"
 
-              = i.label :picture, for: "item_images_attributes_3_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_3_picture", style: "display: none;", name: "item[images_attributes][3][picture]"
+                      = i.label :picture, for: "item_images_attributes_2_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_2_picture", style: "display: none;", name: "item[images_attributes][2][picture]"
 
-              = i.label :picture, for: "item_images_attributes_4_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_4_picture", style: "display: none;", name: "item[images_attributes][4][picture]"
+                      = i.label :picture, for: "item_images_attributes_3_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_3_picture", style: "display: none;", name: "item[images_attributes][3][picture]"
 
-              = i.label :picture, for: "item_images_attributes_5_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_5_picture", style: "display: none;", name: "item[images_attributes][5][picture]"
+                      = i.label :picture, for: "item_images_attributes_4_picture", class: "items__Contents__image__upload--cameraBtnUpper" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_4_picture", style: "display: none;", name: "item[images_attributes][4][picture]"
 
-              = i.label :picture, for: "item_images_attributes_6_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_6_picture", style: "display: none;", name: "item[images_attributes][6][picture]"
+                      = i.label :picture, for: "item_images_attributes_5_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_5_picture", style: "display: none;", name: "item[images_attributes][5][picture]"
 
-              = i.label :picture, for: "item_images_attributes_7_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_7_picture", style: "display: none;", name: "item[images_attributes][7][picture]"
+                      = i.label :picture, for: "item_images_attributes_6_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_6_picture", style: "display: none;", name: "item[images_attributes][6][picture]"
 
-              = i.label :picture, for: "item_images_attributes_8_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_8_picture", style: "display: none;", name: "item[images_attributes][8][picture]"
+                      = i.label :picture, for: "item_images_attributes_7_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_7_picture", style: "display: none;", name: "item[images_attributes][7][picture]"
 
-              = i.label :picture, for: "item_images_attributes_9_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
-                = icon('fa', 'camera')
-              = i.file_field :picture, id: "item_images_attributes_9_picture", style: "display: none;", name: "item[images_attributes][9][picture]"
-              - if @item.errors.any?
-                %p.red 画像がありません
+                      = i.label :picture, for: "item_images_attributes_8_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_8_picture", style: "display: none;", name: "item[images_attributes][8][picture]"
+
+                      = i.label :picture, for: "item_images_attributes_9_picture", class: "items__Contents__image__upload--cameraBtnDowner" do
+                        = icon('fa', 'camera', class: :"hidden")
+                      = i.file_field :picture, id: "item_images_attributes_9_picture", style: "display: none;", name: "item[images_attributes][9][picture]"
+                      %label{for: "img-file"}
+                        %i.fas.fa-camera
+                      - if @item.errors.any?
+                        %p.red 画像がありません
+           
 
 
    
@@ -83,13 +91,15 @@
             -# .form.relative#select
             -#   = f.collection_select :category_id, @parents, :id, :genre,{prompt: "選択してください"}, class: "select-default", id: "parent-form", genre: 'item[category_ids][]'
             -#   = icon('fa', 'chevron-down', class: 'icon')
+            
+            
        
       
           .Contents__detail__list__brand
             = f.fields_for :brand do |b|
               %span.Contents__detail__list__brand--text ブランド
               %span.Contents__detail__list__brand--any 任意  
-              = b.text_field :name, placeholder: "シャネル", value: "", class: 'Contents__detail__list__brand--input'
+              = b.text_field :name, placeholder: "シャネル", value: @item.brand.name, class: 'Contents__detail__list__brand--input'
           
           
           .Contents__detail__list__status
@@ -97,7 +107,7 @@
             %span.Contents__detail__list__status--must 必須
 
             .form.relative  
-              = f.select :status, [['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'], ['目立った傷や汚れなし', '目立った傷や汚れなし']], {include_blank: "選択してください", selected: 1}, { id: "item_id", class: "select-default"}
+              = f.select :status, [['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'], ['目立った傷や汚れなし', '目立った傷や汚れなし']], {include_blank: "選択してください", selected: @item.status}, { id: "item_id", class: "select-default"}
               = icon('fa', 'chevron-down', class: 'icon')
       
       .Contents__delivery
@@ -113,7 +123,7 @@
             %span.Contents__delivery__category__burden--text 配送料の負担
             %span.Contents__delivery__category__burden--must 必須
             .form.relative
-              = f.select :charge, [['送料込み(出品者負担)', '送料込み(出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {include_blank: "選択してください", selected: 1}, { id: "item_id", class: "select-default"}
+              = f.select :charge, [['送料込み(出品者負担)', '送料込み(出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {include_blank: "選択してください", selected: @item.charge}, { id: "item_id", class: "select-default"}
               = icon('fa', 'chevron-down', class: 'icon')
 
           .Contents__delivery__category__area
@@ -127,7 +137,7 @@
             %span.Contents__delivery__category__date--text 配送までの日数
             %span.Contents__delivery__category__date--must 必須 
             .form.relative
-              = f.select :day, [['1~2日で発送', '1~2日で発送'], ['2~3日で発送', '2~3日で発送'], ['4~7日で発送', '4~7日で発送']], {include_blank: "選択してください", selected: 1}, { id: "item_id", class: "select-default"}
+              = f.select :day, [['1~2日で発送', '1~2日で発送'], ['2~3日で発送', '2~3日で発送'], ['4~7日で発送', '4~7日で発送']], {include_blank: "選択してください", selected: @item.day}, { id: "item_id", class: "select-default"}
               = icon('fa', 'chevron-down', class: 'icon')
       
       .Contents__price

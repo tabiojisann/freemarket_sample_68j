@@ -10,9 +10,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :day
       t.integer :sale
       t.references :prefecture
-      t.references :user
-      t.references :category
-      t.references :brand
+      t.bigint :user_id, foreign_key: true
+      t.bigint :category_id, foreign_key: true
+      t.bigint :brand_id, foreign_key: true
       t.timestamps
     end
   end
