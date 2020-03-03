@@ -84,10 +84,17 @@
           .EditContents__delivery__category__burden 
             %span.EditContents__delivery__category__burden--text 配送料の負担
             %span.EditContents__delivery__category__burden--must 必須
-            .form.relative
-              = f.select :charge, [['送料込み(出品者負担)', '送料込み(出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {include_blank: "選択してください", selected: @item.charge}, { id: "item_charge__edit", class: "select-default"}
+            .form.relative#editSelect
+              = f.collection_select :category_id, @parents, :id, :genre,{include_blank: "選択してください", selected: @item.category.parent.parent.id}, class: "select-default", id: "editParent_form", genre: 'item[category_ids][]'
               = icon('fa', 'chevron-down', class: 'icon')
-              #Input_error__edit__charge
+            .editRemove.relative
+              = f.collection_select :category_id, @ctgrChild, :id, :genre,{selected: @item.category.parent.id}, class: "select-default", id: "rm_m_editParent_form", genre: 'item[category_ids][]'
+              = icon('fa', 'chevron-down', class: 'icon')
+            .editRemove.relative
+              = f.collection_select :category_id, @ctgrGrandchild, :id, :genre,{selected: @item.category.id}, class: "select-default", id: "rm_s_editParent_form", genre: 'item[category_ids][]'
+              = icon('fa', 'chevron-down', class: 'icon')
+            #Input_error__edit__category
+
 
           .EditContents__delivery__category__area
             %span.EditContents__delivery__category__area--text 配送元の地域
