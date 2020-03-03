@@ -57,7 +57,13 @@ class ItemsController < ApplicationController
   def edit
     @parents = Category.where(ancestry: nil)
     @item.build_brand
-     # each do で並べた画像が image
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to root_path
+    #  each do で並べた画像が image
     # 新しくinputに追加された画像が image_attributes
     # この二つがない時はupdateしない
     if params[:item].keys.include?("image") || params[:item].keys.include?("images_attributes") 
@@ -89,13 +95,6 @@ class ItemsController < ApplicationController
     else
       redirect_back(fallback_location: root_path,flash: {success: '画像がありません'})
     end
-    
-  end
-
-  def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to root_path
   end  
 
   def destroy

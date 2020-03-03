@@ -20,28 +20,34 @@
           #image-box-1
             .item-num-0#image-box__container
               = f.fields_for :images do |i|
-                %label.upload-label
-                  .Contents__image__upload
-                    .container
-                      = i.label :picture, for: "item_images_attributes_0_picture", class: "camera" do
-                        = icon('fa', 'camera',)
-                      = i.file_field :picture, id: "item_images_attributes_0_picture", class: "img",  style: "display: none;", name: "item[images_attributes][0][picture]"
+                .clearfix
+                  %ul#previews
+                    %li.input
+                      %label.upload-label
+                        .Contents__image__upload
+                          .input-area
+                            = i.file_field :picture, class: "hidden image_upload"
+                            = icon('fa', 'camera')
+                          -# .container
+                            -# = i.label :picture, for: "item_images_attributes_0_picture", class: "camera" do
+                            -#   = icon('fa', 'camera',)
+                            -# = i.file_field :picture, id: "item_images_attributes_0_picture", class: "img",  style: "display: none;", name: "item[images_attributes][0][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_1_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_1_picture", class: "img", style: "display: none;", name: "item[images_attributes][1][picture]"
+                            -# = i.label :picture, for: "item_images_attributes_1_picture", class: "camera" do
+                            -#   = icon('fa', 'camera')
+                            -# = i.file_field :picture, id: "item_images_attributes_1_picture", class: "img", style: "display: none;", name: "item[images_attributes][1][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_2_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_2_picture", class: "img", style: "display: none;", name: "item[images_attributes][2][picture]"
+                            -# = i.label :picture, for: "item_images_attributes_2_picture", class: "camera" do
+                            -#   = icon('fa', 'camera')
+                            -# = i.file_field :picture, id: "item_images_attributes_2_picture", class: "img", style: "display: none;", name: "item[images_attributes][2][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_3_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_3_picture", class: "img", style: "display: none;", name: "item[images_attributes][3][picture]"
+                            -# = i.label :picture, for: "item_images_attributes_3_picture", class: "camera" do
+                            -#   = icon('fa', 'camera')
+                            -# = i.file_field :picture, id: "item_images_attributes_3_picture", class: "img", style: "display: none;", name: "item[images_attributes][3][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_4_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_4_picture",  class: "img", style: "display: none;", name: "item[images_attributes][4][picture]"
+                            -# = i.label :picture, for: "item_images_attributes_4_picture", class: "camera" do
+                            -#   = icon('fa', 'camera')
+                            -# = i.file_field :picture, id: "item_images_attributes_4_picture",  class: "img", style: "display: none;", name: "item[images_attributes][4][picture]"
                     -# #image-box-2
                     -#   = i.label :picture, for: "item_images_attributes_5_picture", class: "camera" do
                     -#     = icon('fa', 'camera')
@@ -62,11 +68,11 @@
                     -#   = i.label :picture, for: "item_images_attributes_9_picture", class: "camera" do
                     -#     = icon('fa', 'camera')
                     -#   = i.file_field :picture, id: "item_images_attributes_9_picture", style: "display: none;", name: "item[images_attributes][9][picture]"
-                      %label{for: "img-file"}
-                        %i.fas.fa-camera
-                      - if @item.errors.any?
-                        %p.red 画像がありません
-                  #Input_error__image
+                      -# %label{for: "img-file"}
+                      -#   %i.fas.fa-camera
+                      -# - if @item.errors.any?
+                      -#   %p.red 画像がありません
+                  -# #Input_error__image
 
       .Contents__name
         .Contents__name__form
