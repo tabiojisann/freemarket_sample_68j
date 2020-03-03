@@ -56,6 +56,8 @@ class ItemsController < ApplicationController
 
   def edit
     @parents = Category.where(ancestry: nil)
+    @ctgrChild = @item.category.parent.siblings
+    @ctgrGrandchild = @item.category.siblings
     @item.build_brand
   end
 
