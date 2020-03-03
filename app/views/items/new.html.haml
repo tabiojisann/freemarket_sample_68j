@@ -42,26 +42,26 @@
                       = i.label :picture, for: "item_images_attributes_4_picture", class: "camera" do
                         = icon('fa', 'camera')
                       = i.file_field :picture, id: "item_images_attributes_4_picture",  class: "img", style: "display: none;", name: "item[images_attributes][4][picture]"
-                    #image-box-2
-                      = i.label :picture, for: "item_images_attributes_5_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_5_picture", style: "display: none;", name: "item[images_attributes][5][picture]"
+                    -# #image-box-2
+                    -#   = i.label :picture, for: "item_images_attributes_5_picture", class: "camera" do
+                    -#     = icon('fa', 'camera')
+                    -#   = i.file_field :picture, id: "item_images_attributes_5_picture", style: "display: none;", name: "item[images_attributes][5][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_6_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_6_picture", style: "display: none;", name: "item[images_attributes][6][picture]"
+                    -#   = i.label :picture, for: "item_images_attributes_6_picture", class: "camera" do
+                    -#     = icon('fa', 'camera')
+                    -#   = i.file_field :picture, id: "item_images_attributes_6_picture", style: "display: none;", name: "item[images_attributes][6][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_7_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_7_picture", style: "display: none;", name: "item[images_attributes][7][picture]"
+                    -#   = i.label :picture, for: "item_images_attributes_7_picture", class: "camera" do
+                    -#     = icon('fa', 'camera')
+                    -#   = i.file_field :picture, id: "item_images_attributes_7_picture", style: "display: none;", name: "item[images_attributes][7][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_8_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_8_picture", style: "display: none;", name: "item[images_attributes][8][picture]"
+                    -#   = i.label :picture, for: "item_images_attributes_8_picture", class: "camera" do
+                    -#     = icon('fa', 'camera')
+                    -#   = i.file_field :picture, id: "item_images_attributes_8_picture", style: "display: none;", name: "item[images_attributes][8][picture]"
 
-                      = i.label :picture, for: "item_images_attributes_9_picture", class: "camera" do
-                        = icon('fa', 'camera')
-                      = i.file_field :picture, id: "item_images_attributes_9_picture", style: "display: none;", name: "item[images_attributes][9][picture]"
+                    -#   = i.label :picture, for: "item_images_attributes_9_picture", class: "camera" do
+                    -#     = icon('fa', 'camera')
+                    -#   = i.file_field :picture, id: "item_images_attributes_9_picture", style: "display: none;", name: "item[images_attributes][9][picture]"
                       %label{for: "img-file"}
                         %i.fas.fa-camera
                       - if @item.errors.any?
